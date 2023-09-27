@@ -2,10 +2,16 @@
 
 :link: [Udemy](https://www.udemy.com/course/master-svelte-framework-the-complete-course-2023)
 
+<details>
+  <summary>JavaScript runtime</summary>
+
+1. [NodeJs](https://nodejs.org/en) or [Multi Nodejs / Nvm Windows](https://github.com/EKI-INDRADI/install-multi-nodejs-version-windows) or [Multi Nodejs / Nvm Linux](https://github.com/EKI-INDRADI/install-multi-nodejs-version-linux)
+
+</details>
 
 <details>
   <summary>Extentions Visual Studio Code</summary>
-
+  
 1. [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 
 2. [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
