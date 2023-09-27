@@ -1,15 +1,29 @@
 <script>
-  let name = "Bob";
-  let favoriteColor = "red";
-  let favoriteNumber = 30;
-  let fontSize = 20;
-  setTimeout(function () {
-    favoriteColor = "blue";
-    fontSize = 100;
-  }, 1000);
+  import Funny from "./Funny.svelte";
+  // let size = 150;
+  //----------- move to Funny.svelte
+  // setInterval(()=> {
+  //   if ( size === 150) {
+  //     size = 5
+  //   } else {
+  //     size += 1
+  //   }
+  // }, 10)
+  //----------- move to Funny.svelte
+  import MissionPossible from "./MissionPossible.svelte";
+  let fontSize = 150;
+  let color = "greenish";
 </script>
 
-<h1>Hello You Svelte Developer</h1>
-<p style="color: {favoriteColor}">{name.toUpperCase()}</p>
-<p>{favoriteNumber / 30}</p>
-<p style="font-size: {fontSize}px;">{fontSize}</p>
+<!-- <h1>Font Size: {size}</h1> -->
+<!-- <Funny /> -->
+<!-- <Funny fontSize={50} /> -->
+<!-- == -->
+<!-- <Funny fontSize={size} /> -->
+<!-- == -->
+<!-- <Funny bind:fontSize={size} /> -->
+<!-- == -->
+
+<h1>Font Size: {fontSize}</h1>
+<MissionPossible {color}/>
+<Funny {fontSize} />
