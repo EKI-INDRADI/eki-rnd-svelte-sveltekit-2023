@@ -9,7 +9,6 @@
 
 </details>
 
-
 <details>
   <summary>Extentions Visual Studio Code</summary>
   
