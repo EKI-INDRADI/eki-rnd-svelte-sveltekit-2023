@@ -32,6 +32,28 @@
 </details>
 
 
+
+<details>
+  <summary>EKI-20230927-002-Svelte-up-and-Running</summary>
+
+```sh
+
+npm init vite@latest
+
+Project Name : demo
+Select a framework : Svelte
+Select a variant : JavaScript
+
+
+  cd demo     
+  npm install 
+  npm run dev
+
+```
+
+</details>
+
+
 ## EKI INDRADI
 
 "TIME > KNOWLEDGE > MONEY". #2024_3_DIGIT_MOTIVATION
