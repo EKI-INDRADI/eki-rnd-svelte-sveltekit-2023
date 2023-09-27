@@ -6,11 +6,7 @@
 <details>
   <summary>Extentions Visual Studio Code</summary>
   
-0. [NodeJs](https://nodejs.org/en)
-
-or
-
-0. [Nvm Windows](https://github.com/EKI-INDRADI/install-multi-nodejs-version-windows) or [Nvm Linux](https://github.com/EKI-INDRADI/install-multi-nodejs-version-linux)
+0. [NodeJs](https://nodejs.org/en) or [Multi Nodejs / Nvm Windows](https://github.com/EKI-INDRADI/install-multi-nodejs-version-windows) or [Multi Nodejs / Nvm Linux](https://github.com/EKI-INDRADI/install-multi-nodejs-version-linux)
 
 1. [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 
