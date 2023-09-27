@@ -54,6 +54,23 @@ Select a variant : JavaScript
 </details>
 
 
+<details>
+  <summary>EKI-20230927-003-Svelte Project Tour</summary>
+
+```sh
+./package.json
+
+  "scripts": {
+    "dev": "vite",                 ---> npm run dev (run from code)
+    "build": "vite build",         ---> npm run build (build code to production ./dist) 
+    "preview": "vite preview"      ---> npm run preview (preview production ./dist)
+  },
+
+```
+
+</details>
+
+
 ## EKI INDRADI
 
 "TIME > KNOWLEDGE > MONEY". #2024_3_DIGIT_MOTIVATION
