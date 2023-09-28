@@ -7,13 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-
-/color-picker/node_modules
-/color-picker/dist
-/color-picker/dist-ssr
-/demo/node_modules
-/demo/dist
-/demo/dist-ssr
+node_modules
+dist
+dist-ssr
 *.local
 
 # Editor directories and files
