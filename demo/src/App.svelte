@@ -1,26 +1,88 @@
 <script>
-  let name = "Ash";
-  let fontSize = 30;
-  let disabled = true;
-  setTimeout(() => {
-    name = "Carson";
-  }, 1000);
+  let left = 100;
+  let top = 100;
+
+  function clickMe(e) {
+    console.log(e);
+    alert("clicked");
+  }
+
+  function onInput(e) {
+    // console.log(e,'input')
+    console.log(e.target.value, "input");
+  }
+
+  function onChange(e) {
+    console.log(e, "change");
+  }
+
+  // function onKeyPressed(e) {
+  //   console.log(e.key, e, "keyPressed");
+  // }
+
+  function onKeyUp(e) {
+    // console.log(e.key, e, "keyUp");
+    switch (e.key) {
+      case "ArrowUp":
+        top -= 10;
+        break;
+      case "ArrowDown":
+        top += 10;
+        break;
+      case "ArrowUp":
+        top -= 10;
+        break;
+      case "ArrowLeft":
+        left -= 10;
+        break;
+      case "ArrowRight":
+        left += 10;
+        break;
+    }
+  }
+
+  function handleSubmit(e) {
+    // e.preventDefault()
+    console.log("handleSubmit");
+  }
 </script>
 
-<h1>Hello Svelte Developer</h1>
-<!-- // vscode  type  "input:range" -->
-<input type="range" bind:value={fontSize} min="30" max="1000" />
-<!-- <h2>Font Size: {fontSize}px</h2> -->
-<h2 style="font-size: {fontSize}px">Font Size: {fontSize}px</h2>
-<h2>Hello {name}</h2>
-<!-- 
-  // not support changes
-  <input type="text" value={name}>
- -->
+<!-- <button on:click={clickMe}>Click Me</button> -->
+<!-- click == process click -->
+<!-- once == 1x click only -->
 
-<!-- //suport changes (bind) -->
-<input type="text" bind:value={name} />
+<button on:click|once={clickMe}>Click Me</button>
 
-<!-- <button disabled={disabled}>Click Me</button> -->
-<!-- or -->
-<button {disabled}>Click Me</button>
+<!-- change == process changes -->
+<input type="range" on:input={onInput} on:change={onChange} />
+
+<!-- keypress ==  detect key press (press with hold) on page -->
+<!-- <svelte:window on:keypress={onKeyPressed} /> -->
+
+<!-- keyup ==  detect key up (after press) on page -->
+<!-- <svelte:window on:keyup={onKeyUp} /> -->
+
+<!-- keydown ==  detect key down (frist press without hold) on page -->
+<svelte:window on:keydown={onKeyUp} />
+
+<!-- submit == submit-->
+<!-- <form on:submit={handleSubmit}> -->
+
+<!-- stopPropagation == spesific submit & stop process other submit in same page or in same hierarchy -->
+<!-- <form on:submit|stopPropagation={handleSubmit}> -->
+
+<!-- preventDefault == without page reload-->
+<form on:submit|stopPropagation|preventDefault={handleSubmit}>
+  <button type="submit">Submit Form</button>
+</form>
+
+<div style="left: {left}px; top: {top}px;" />
+
+<style>
+  div {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-color: aqua;
+  }
+</style>
