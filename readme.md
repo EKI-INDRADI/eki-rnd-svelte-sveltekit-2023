@@ -70,6 +70,43 @@ Select a variant : JavaScript
 
 </details>
 
+<details>
+  <summary>EKI-20230928-007-Styles</summary>
+
+```svelte
+
+<style>
+  h1 {
+    color : red;
+  }
+
+  h2 {
+    color : blue;
+  }
+
+  /* 
+  
+  include <Fun /> (not recomended) 
+  
+  :global(h2) {
+    color : blue;
+  } 
+
+  recomended 
+  create ./src/global.css
+  update ./src/main.js
+
+  
+  */
+
+</style>
+
+
+```
+
+</details>
+
+
 
 ## EKI INDRADI
 

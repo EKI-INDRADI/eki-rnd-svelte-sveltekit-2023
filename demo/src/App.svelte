@@ -1,29 +1,32 @@
 <script>
-  import Funny from "./Funny.svelte";
-  // let size = 150;
-  //----------- move to Funny.svelte
-  // setInterval(()=> {
-  //   if ( size === 150) {
-  //     size = 5
-  //   } else {
-  //     size += 1
-  //   }
-  // }, 10)
-  //----------- move to Funny.svelte
-  import MissionPossible from "./MissionPossible.svelte";
-  let fontSize = 150;
-  let color = "greenish";
+  import Fun from "./Fun.svelte";
 </script>
 
-<!-- <h1>Font Size: {size}</h1> -->
-<!-- <Funny /> -->
-<!-- <Funny fontSize={50} /> -->
-<!-- == -->
-<!-- <Funny fontSize={size} /> -->
-<!-- == -->
-<!-- <Funny bind:fontSize={size} /> -->
-<!-- == -->
+<h1>Hello Svelte Developer</h1>
+<h2>You Rock!!</h2>
+<Fun />
+<style>
+  h1 {
+    color : red;
+  }
 
-<h1>Font Size: {fontSize}</h1>
-<MissionPossible {color}/>
-<Funny {fontSize} />
+  h2 {
+    color : blue;
+  }
+
+  /* 
+  
+  include <Fun /> (not recomended) 
+  
+  :global(h2) {
+    color : blue;
+  } 
+
+  recomended 
+  create ./src/global.css
+  update ./src/main.js
+
+  
+  */
+
+</style>
