@@ -106,7 +106,52 @@ Select a variant : JavaScript
 
 </details>
 
+<details>
+  <summary>EKI-20230929-009-Color-Picker-Challenge</summary>
 
+```sh
+
+  https://milligram.io/#getting-started
+
+  update ./index.html
+  update ./src/App.svelte
+
+```
+
+index.html
+
+```html
+  <head>
+    
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"
+    />
+
+    <!-- CSS Reset -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
+
+    <!-- Milligram CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+
+  </head>
+
+  <body>
+    <!-- <div id="app"></div> -->
+    <div class="container" id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+
+```
+
+</details>
 
 ## EKI INDRADI
 
