@@ -1,25 +1,44 @@
 <script>
-  // import Form from "./Form.svelte";
-  import Container from "./Container.svelte";
-  import ChildEvent from "./ChildEvent.svelte";
-  function onFormSubmit(e) {
-    console.log(e);
-    const { name, age } = e.detail;
-    console.log(name, age, "detail from event");
+  let name = "Joe";
+  // let capitalizedName = name.toUpperCase()  //  changes bind issue
+  $: capitalizedName = name.toUpperCase(); // changes bind work
+  let age = 33;
+  $: dogYears = age * 7; // statement support changes bind
+
+  let red = 10;
+  let blue = 0;
+  let green = 0;
+let highGreen = false
+  $: colorValue = color(red, green, blue);
+  $: console.log(green)
+  $: {
+    console.log(green, "green")
+    console.log(red, "red")
+    console.log(blue, "blue")
   }
 
-  function onCustomEvent(e) {
-    alert(e.detail)
+  $: if(green > 100) {
+    highGreen =  true
   }
+
+  function color(req, green, blue) {
+    return `rgb{${red},${green},${blue}}`;
+  }
+
+  setTimeout(() => {
+    green += 150;
+
+  }, 1500);
 </script>
 
-<!-- <Form on:form_submit={onFormSubmit} /> -->
-<Container
-  on:click={() => alert("was clicked")}
-  on:form_submit={onFormSubmit}
-/>
+<h2>{name}</h2>
+<h2>{capitalizedName}</h2>
+<input type="text" bind:value={name} />
 
-<!-- on:click|once={() => alert("was clicked")} -->
+<h2>Age : {age}</h2>
+<h2>Dog years : {dogYears}</h2>
+<input type="number" bind:value={age} />
 
-
-<ChildEvent on:custom_event={onCustomEvent}/>
+<h2>Color Value : {colorValue}</h2>
+<!-- <h2>Color Value : {color(red,green,blue)}</h2> -->
+<h2>{highGreen ? 'HIGH' : 'LOW'} Green</h2>
