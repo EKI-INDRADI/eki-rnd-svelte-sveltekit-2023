@@ -1,12 +1,19 @@
 <script>
-  import Slider from './Slider.svelte';
+  import Slider from "./Slider.svelte";
   let redColor = 100;
   let greenColor = 0;
   let blueColor = 0;
+  // ====== Reactive Variable rgbToHex ======
+
   function rgbToHex(r, g, b) {
-    return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
+    return "#" + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
   }
   $: hexColor = rgbToHex(redColor, greenColor, blueColor);
+
+  // reference rgbToHex :
+  // https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb/5624139#5624139
+  // https://github.com/udemy-sveltekit-course/color_picker/blob/main/src/App.svelte
+  // ====== Reactive Variable rgbToHex ======
 </script>
 
 <div class="row">
@@ -38,7 +45,9 @@
 </div>
 <div class="row">
   <div class="column">
+    <!-- ====== Reactive Variable rgbToHex ======  -->
     <h2>Hex Color: {hexColor}</h2>
+    <!-- ====== Reactive Variable rgbToHex ======  -->
   </div>
 </div>
 
