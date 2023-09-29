@@ -1,20 +1,37 @@
 <script>
-  let colorName = "blue";
-  let isChecked =  false
+  let colorList = ["red", "green", "blue", "purple"];
+  // setTimeout(() => {
+  // colorList.push("bluish");
+  // colorList = colorList
+  // or
+  //  colorList = [...colorList,'bluish']
+  // }, 2000);
+
+  let color = "";
+
+  function addColor() {
+    // if (color !== "") { // allow duplicate
+    if (color !== "" && !colorList.includes(color)) { // unique
+      colorList = [color, ...colorList];
+    } else {
+      alert('Color must not be blank or already be in the list.')
+    }
+  }
 </script>
 
-{#if colorName.toLowerCase() === "blue"}
-  <h2>Blue</h2>
-{:else if colorName.toLowerCase() === "red"}
-  <h2>Red</h2>
-{:else}
-  <h2>Some other color</h2>
-{/if}
+<ul>
 
-<input type="text" bind:value={colorName}>
+  <!-- {#each colorList as color}  << allow duplicate -->
+  <!-- {#each colorList as color (color)} << unique -->
+  
+  <!-- {#each colorList as color (color)} 
+    <li>{color}</li>
+  {/each} -->
 
-<input type="checkbox" bind:checked={isChecked}>
-<hr />
-{#if isChecked}
-<h2>You Win!!!</h2>
-{/if}
+  {#each colorList as color, index (color)} 
+  <li>{index + 1}) {color}</li>
+{/each}
+</ul>
+
+<input type="text" bind:value={color} />
+<button on:click={addColor}>Add color</button>
