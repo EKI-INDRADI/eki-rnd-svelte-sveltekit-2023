@@ -1,44 +1,45 @@
 <script>
-  let colorList = ["red", "green", "blue", "purple"];
-  // setTimeout(() => {
-  // colorList.push("bluish");
-  // colorList = colorList
-  // or
-  //  colorList = [...colorList,'bluish']
-  // }, 2000);
+  // https://zenquotes.io/
+  // https://docs.zenquotes.io/zenquotes-documentation/
+  // https://zenquotes.io/api/random
 
-  let color = "";
+  // chrome extention:  (new chrome block CORS)
+  // https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf (install , pin , open http://localhost:5173/ & click pin C: / toggle on  )
+  // https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/related (install , pin , enable in site http://localhost:5173/  )
 
-  function addColor() {
-    // if (color !== '') { // allow duplicate
-    if (color !== "" && !colorList.includes(color)) {
-      // unique
-      colorList = [color, ...colorList];
-      color = "";
-    } else {
-      alert("Color must not be blank or already be in the list.");
-    }
+  async function getQuote() {
+    const url = "https://zenquotes.io/api/random";
+    const response = await fetch(url)
+    // const response = await fetch(url, {
+    //   // method: "GET",
+    //   // redirect: "follow",
+    //   // mode: 'no-cors',
+    //   // mode: "cors",
+    //   // headers: {
+    //   //   "Access-Control-Allow-Origin": "*",
+    //   //   // "Access-Control-Allow-Origin": "http://localhost:5173",
+    //   //   // "Access-Control-Allow-Origin": "http://localhost::1",
+    //   // },
+    // });
+    const [quoteInfo] = await response.json();
+    return quoteInfo;
+
   }
+
+  let promiseQuote = getQuote();
+
+  function refreshQuote() {
+      promiseQuote = getQuote()
+    }
 </script>
 
-<ul>
-  <!-- {#each colorList as color}  << allow duplicate -->
-  <!-- {#each colorList as color (color)} << unique -->
+{#await promiseQuote}
+  <h2>Loading Quote . . .</h2>
+{:then quoteInfo}
+  <h2>{quoteInfo.q}</h2>
+  <h3>Author: {quoteInfo.a}</h3>
+{:catch error}
+  <h2>Error: {error.message}</h2>
+{/await}
 
-  <!--- Each Template -->
-
-  <!-- {#each colorList as color (color)} 
-    <li>{color}</li>
-  {/each} -->
-
-  <!--- /Each Template -->
-
-  <!--- Each Template Id -->
-  {#each colorList as color, index (color)}
-    <li>{index + 1}) {color}</li>
-  {/each}
-  <!--- Each Template Id -->
-</ul>
-
-<input type="text" bind:value={color} />
-<button on:click={addColor}>Add color</button>
+<button on:click={refreshQuote}>Refresh Quote</button>
