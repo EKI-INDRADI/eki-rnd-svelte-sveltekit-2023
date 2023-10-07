@@ -110,32 +110,6 @@ Select a variant : JavaScript
   <summary>EKI-20230929-009-Color-Picker-Challenge</summary>
 
 
-<details>
-  <summary>EKI-20231008-019-Deploying-Magic-Gather-Challenge</summary>
-
-```sh
-
-source : ./mtg-counter
-
-github public : https://github.com/EKI-INDRADI/mtg-counter-deploy
-
-server : https://vercel.com
-
-deploy :
-
-- https://mtg-counter-deploy.vercel.app/ 
-
-- https://mtg-counter-deploy-m65aoeg47-eki-indradis-projects.vercel.app/
-
-- https://mtg-counter-deploy-git-main-eki-indradis-projects.vercel.app/
-
-
-```
-
-</details>
-
-
-
 ```sh
 
   https://milligram.io/#getting-started
@@ -175,6 +149,30 @@ index.html
     <div class="container" id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
+
+```
+
+</details>
+
+<details>
+  <summary>EKI-20231008-019-Deploying-Magic-Gather-Challenge</summary>
+
+```sh
+
+source : ./mtg-counter
+
+github public : https://github.com/EKI-INDRADI/mtg-counter-deploy
+
+server : https://vercel.com
+
+deploy :
+
+- https://mtg-counter-deploy.vercel.app/ 
+
+- https://mtg-counter-deploy-m65aoeg47-eki-indradis-projects.vercel.app/
+
+- https://mtg-counter-deploy-git-main-eki-indradis-projects.vercel.app/
+
 
 ```
 
