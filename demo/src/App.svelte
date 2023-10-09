@@ -1,10 +1,17 @@
 <script>
-  import LifeCycle from "./LifeCycle.svelte";
+  // import store from "./stores/GeoLocation.Store";
+  // const unsub = store.subscribe((info) => {
+  //   console.log("info", info);
+  // });
 
-  let show = false;
+  // console.log(unsub);
+
+  import GeoLocation from "./GeoLocation.svelte";
+  let show = false
 </script>
+
 
 <input type="checkbox" bind:checked={show} />
 {#if show}
-  <LifeCycle />
+<GeoLocation />
 {/if}
