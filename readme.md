@@ -29,6 +29,8 @@
 
 2. [REPL (WEB SVELTE CODE)](https://svelte.dev/repl/hello-world?version=3.50.1)
 
+3. [Allow CORS: Access-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf/related)
+
 </details>
 
 

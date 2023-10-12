@@ -1,17 +1,44 @@
 <script>
-  // import store from "./stores/GeoLocation.Store";
-  // const unsub = store.subscribe((info) => {
-  //   console.log("info", info);
-  // });
+  import { onDestroy } from "svelte";
+  import countStore from "./stores/count.store";
+  //  countStore.subscribe((n) => {
+  //     console.log(n, "count store");
+  //   });
 
-  // console.log(unsub);
+  const unsub = countStore.subscribe((n) => {
+    console.log(n, "count store");
+  });
 
-  import GeoLocation from "./GeoLocation.svelte";
-  let show = false
+  function add() {
+    countStore.update((n) => {
+      return n + 1;
+    });
+  }
+
+  function minus() {
+    countStore.update((n) => {
+      return n - 1;
+    });
+  }
+
+  // setTimeout(() => {
+  //   countStore.set(2000);
+  // }, 2000);
+
+  // setTimeout(() => {
+  //   countStore.update((n) => {
+  //     return n + 300;
+  //   });
+  // }, 2000);
+
+  onDestroy(() => {
+    unsub();
+  });
 </script>
 
+<!-- <h2>{$countStore}</h2> -->
 
-<input type="checkbox" bind:checked={show} />
-{#if show}
-<GeoLocation />
-{/if}
+<h2>{$countStore}</h2>
+
+<button on:click={add}>+</button>
+<button on:click={minus}>-</button>
