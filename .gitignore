@@ -6,7 +6,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
+/contact-list/node_modules
+/contact-list/dist
+/contact-list/dist-ssr
 /mtg-counter/node_modules
 /mtg-counter/dist
 /mtg-counter/dist-ssr
