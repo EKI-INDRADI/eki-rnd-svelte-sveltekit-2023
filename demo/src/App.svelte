@@ -1,10 +1,32 @@
 <script>
-  import { storeOne, storeTwo, storeSumEven, storeOneEven } from "./stores/derived.store";
+  let show = false;
+  function exampleAction(node) {
+    // console.log(node)
+    // javascript pure event
+    // check right click in box (checklist first)
+    const contextFunc = (e) => {
+      e.preventDefault();
+      alert('Right Click');
+    };
+    node.addEventListener('contextmenu', contextFunc);
+    return {
+      destroy() {
+        console.log('destroy was called');
+        node.removeEventListener('contextmenu', contextFunc);
+      },
+    };
+  }
 </script>
 
-<h2>Sum of store is even: {$storeSumEven}</h2>
-<h3>Store One {$storeOne}</h3>
-<input type="range" bind:value={$storeOne} min="0" max="10" />
-<h3>Store Two {$storeTwo}</h3>
-<input type="range" bind:value={$storeTwo} min="0" max="10" />
-<h1>Store One Even: {$storeOneEven}</h1>
+<input type="checkbox" bind:checked={show} />
+{#if show}
+  <div use:exampleAction />
+{/if}
+
+<style>
+  div {
+    width: 300px;
+    height: 300px;
+    border: solid black 1px;
+  }
+</style>
