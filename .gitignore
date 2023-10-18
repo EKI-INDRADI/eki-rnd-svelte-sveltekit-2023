@@ -6,6 +6,12 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+**/node_modules
+**/dist
+**/dist-ssr
+/**/node_modules
+/**/dist
+/**/dist-ssr
 /contact-list/node_modules
 /contact-list/dist
 /contact-list/dist-ssr
@@ -18,6 +24,9 @@ lerna-debug.log*
 /demo/node_modules
 /demo/dist
 /demo/dist-ssr
+/draggable/node_modules
+/draggable/dist
+/draggable/dist-ssr
 *.local
 
 # Editor directories and files
