@@ -1,40 +1,14 @@
 <script>
-  let show = false;
-  let width = 100;
-  function exampleAction(node, { color, width }) {
-    // console.log(node)
-    // javascript pure event
-    // check right click in box (checklist first)
-    const contextFunc = (e) => {
-      e.preventDefault();
-      alert("Right Click");
-    };
-    node.addEventListener("contextmenu", contextFunc);
-    node.style.backgroundColor = color;
-    node.style.width = width + "px";
-    return {
-      destroy() {
-        console.log("destroy was called");
-        node.removeEventListener("contextmenu", contextFunc);
-      },
-      update({ color, width }) {
-        console.log(color, width);
-        node.style.width = width + "px";
-      },
-    };
-  }
+  import Box from "./Box.svelte";
 </script>
 
-<input type="checkbox" bind:checked={show} />
-{#if show}
-  <div use:exampleAction={{ color: "#AA0000", width }} />
-{/if}
-<input type="range" min="50" max="500" bind:value={width} />
-
-<style>
-  div {
-    width: 300px;
-    height: 300px;
-    border: solid black 1px;
-  }
-</style>
+<Box>
+  <!-- <h1>Hellow World</h1> -->
+  <!-- buat box tanpa hrs buat css, dengan slot component -->
+  <h1 slot="top">Hellow World</h1>
+  <h2 slot="middle">Hi</h2>
+  <div slot="bottom">
+    <p>Hello how are you doing?</p>
+    <p>Hi</p>
+  </div>
+</Box>
