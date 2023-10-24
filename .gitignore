@@ -27,6 +27,9 @@ lerna-debug.log*
 /draggable/node_modules
 /draggable/dist
 /draggable/dist-ssr
+/intro-site/node_modules
+/intro-site/dist
+/intro-site/dist-ssr
 *.local
 
 # Editor directories and files
