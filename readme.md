@@ -180,6 +180,52 @@ deploy :
 
 </details>
 
+
+<details>
+  <summary>EKI-20231024-031-Getting-Started</summary>
+
+```sh
+
+npm create svelte@latest intro-site
+
+Which Svelte app template?
+- Skeleton project
+
+
+Select Additional options ( user arrow keys/space bar)
+
+Add Type checking with TypeScript?
+- Yes, using Javascript with JSDoc comments
+
+Add ESLint for code linting?
+- No
+
+Add pretier for code formatting?
+- Yes
+
+Add Playwright for browser testing?
+- No
+
+Add Vitest for unit testing?
+- No
+
+
+--
+
+cd intro-site
+
+npm install
+
+npm run dev -- --open  (for auto open default browser & auto open page http://localhost:5173)
+
+
+```
+
+</details>
+
+
+
+
 ## EKI INDRADI
 
 "TIME > KNOWLEDGE > MONEY". #2024_3_DIGIT_MOTIVATION
