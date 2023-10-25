@@ -224,6 +224,19 @@ npm run dev -- --open  (for auto open default browser & auto open page http://lo
 </details>
 
 
+<details>
+  <summary>EKI-20231025-033-Pages-and-Routes</summary>
+
+```sh
+
+http://localhost:5173/about
+
+http://localhost:5173/contact
+
+```
+
+</details>
+
 
 
 ## EKI INDRADI
