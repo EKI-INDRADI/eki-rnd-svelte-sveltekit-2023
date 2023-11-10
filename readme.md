@@ -238,6 +238,52 @@ http://localhost:5173/contact
 </details>
 
 
+<details>
+  <summary>EKI-20231025-034-Routing-Parameters</summary>
+
+```sh
+
+http://localhost:5173/person/1
+http://localhost:5173/color/blue
+http://localhost:5173/color/red
+
+
+```
+
+</details>
+
+
+<details>
+  <summary>EKI-20231110-035-Server-Load-Function-With-Environment-Variables</summary>
+
+```sh
+
+https://polygon.io/dashboard/api-keys
+https://polygon.io/docs/stocks
+
+
+create .env
+
+API_KEY=D4qU8yDgffTwUTztFGmu_745j8xMOfdX
+PUBLIC_API_KEY=unujnmsadWHJjkhuasdNMWnuacd_123kjjbasdbhkj
+RANDOM_NUMBER=7
+
+https://polygon.io/docs/options/getting-started
+http://localhost:5173/stock/O:SPY251219C00650000
+http://localhost:5173/stock/O:TSLA230113C00015000
+
+
+http://localhost:5173/random/7
+http://localhost:5173/random/32
+
+```
+
+</details>
+
+
+
+
+
 
 ## EKI INDRADI
 
