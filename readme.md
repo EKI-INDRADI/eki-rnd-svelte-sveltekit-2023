@@ -281,6 +281,24 @@ http://localhost:5173/random/32
 </details>
 
 
+<details>
+  <summary>EKI-20231112-036-Random-Number-Challenge</summary>
+
+```sh
+
+create .env
+
+RANDOM_NUMBER=7
+
+http://localhost:5173/random/7
+http://localhost:5173/random/32
+
+```
+
+</details>
+
+
+
 
 
 
