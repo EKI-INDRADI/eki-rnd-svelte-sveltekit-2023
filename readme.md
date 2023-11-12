@@ -298,6 +298,24 @@ http://localhost:5173/random/32
 </details>
 
 
+<details>
+  <summary>EKI-20231112-037-Layouts</summary>
+
+```sh
+
+create .env
+
+SUPER_SECRET=sshhh!!!
+
+http://localhost:5173/contact
+http://localhost:5173/about
+
+```
+
+</details>
+
+
+
 
 
 
