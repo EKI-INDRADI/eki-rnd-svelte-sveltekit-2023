@@ -315,7 +315,54 @@ http://localhost:5173/about
 </details>
 
 
+<details>
+  <summary>EKI-20231115-038-Prefetching-Links-and-Page-Store</summary>
 
+```sh
+
+https://kit.svelte.dev/docs/link-options
+
+data-sveltekit-preload-data
+
+```
+
+```svelte
+
+<nav>
+  <li><a data-sveltekit-preload-data href="/">Home</a></li>
+	<li><a data-sveltekit-preload-data href="contact">Contact</a></li>
+	<li><a data-sveltekit-preload-data href="about">About</a></li>
+</nav>
+
+
+
+```
+
+data-sveltekit-preload-data = perpindahan routes menjadi lebih cepat memanfaat fungsi cache (tidak reload network)
+
+
+```sh
+
+https://kit.svelte.dev/docs/modules#$app-stores
+
+
+```
+
+
+```svelte
+
+<script>
+
+import { getStores, navigating, page, updated } from '$app/stores';
+
+</script>
+
+```
+
+'$app/stores' = untuk mengeluarkan informasi dari fungsi terkait , ex : digunakan untuk check url path dengan tujuan untuk memvalidasi page layout link active  (brubah warna)
+
+
+</details>
 
 
 
