@@ -366,7 +366,68 @@ import { getStores, navigating, page, updated } from '$app/stores';
 
 
 
+<details>
+  <summary>EKI-20231116-039-Challenge-build-a-personal-webpage</summary>
 
+```sh
+https://kit.svelte.dev/
+
+cd eki-rnd-svelte-sveltekit-2023
+npm create svelte@latest personal-site
+
+Which Svelte app template?
+- Sekelton project
+
+Add type checking with TypeScript?
+- Yes, using Javascript with JSDoc comments
+
+Select additional options (use arrow keys/space bar)
+
+│  ◻ Add ESLint for code linting
+│  ◼ Add Prettier for code formatting
+│  ◻ Add Playwright for browser testing
+│  ◻ Add Vitest for unit testing
+│  ◻ Try out Svelte 5 beta
+
+
+cd personal-site
+npm install
+npm run dev -- --open
+
+```
+
+
+```sh
+
+https://getbootstrap.com/
+
+cd personal-site
+npm i bootstrap@5.3.2 -D
+
+
+https://getbootstrap.com/docs/5.3/components/navbar/
+
+
+```
+
+
+```sh
+
+https://zenquotes.io/
+https://docs.zenquotes.io/zenquotes-documentation/
+https://zenquotes.io/api/random/[your_key]
+
+```
+
+```sh
+
+https://kit.svelte.dev/docs/modules#$app-stores
+
+```
+
+
+
+</details>
 
 ## EKI INDRADI
 
