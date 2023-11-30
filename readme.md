@@ -429,6 +429,31 @@ https://kit.svelte.dev/docs/modules#$app-stores
 
 </details>
 
+
+<details>
+  <summary>EKI-20231130-040-Deploying-to-Vercel</summary>
+
+```sh
+
+source : ./personal-site
+
+github public : https://github.com/EKI-INDRADI/personal-site-deploy
+
+server : https://vercel.com
+
+deploy :
+
+- https://personal-site-deploy.vercel.app/ 
+
+- https://personal-site-deploy-kiri65i85-eki-indradis-projects.vercel.app
+
+
+```
+
+</details>
+
+
+
 ## EKI INDRADI
 
 "TIME > KNOWLEDGE > MONEY". #2024_3_DIGIT_MOTIVATION
