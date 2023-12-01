@@ -758,6 +758,38 @@ npm run build
 </details>
 
 
+<details>
+  <summary>EKI-20231202-043-Form-Challenge</summary>
+
+```sh
+https://kit.svelte.dev/
+
+cd eki-rnd-svelte-sveltekit-2023
+npm create svelte@latest form-challenge
+
+Which Svelte app template?
+- Sekelton project
+
+Add type checking with TypeScript?
+- Yes, using Javascript with JSDoc comments
+
+Select additional options (use arrow keys/space bar)
+
+│  ◻ Add ESLint for code linting
+│  ◼ Add Prettier for code formatting
+│  ◻ Add Playwright for browser testing
+│  ◻ Add Vitest for unit testing
+│  ◻ Try out Svelte 5 beta
+
+
+cd form-challenge
+npm install
+npm run dev -- --open
+
+```
+
+</details>
+
 
 ## EKI INDRADI
 
