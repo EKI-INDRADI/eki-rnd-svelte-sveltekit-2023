@@ -2,6 +2,9 @@
 
 import { fail } from '@sveltejs/kit';
 
+export const csr = false;
+export const ssr = true;
+
 // https://kit.svelte.dev/docs/form-actions
 export const actions = {
     // default: async (event) => {
