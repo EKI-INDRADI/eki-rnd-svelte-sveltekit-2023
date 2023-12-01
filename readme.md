@@ -464,6 +464,298 @@ deploy :
 </details>
 
 
+<details>
+  <summary>EKI-20231202-042-Page-Rendering-Options</summary>
+
+PRERENDER
+
+
+mirip seperti constructor pada angular
+
+```ts
+
+// contoh angular :
+
+// eksekusi sebelum ui muncul (PRERENDER)
+
+constructor  { 
+// run ...
+}
+
+// vs 
+
+// eksekusi setelah ui muncul
+ngOnit { 
+// run  ..
+}
+
+```
+
+perintah prerender pada sveltkit
+
++page.js
+```js
+export const prerender = true
+```
+
+
+
+--
+
+SERVER SIDE VS CLIENT SIDE
+```sh
+# https://chat.openai.com/
+
+ssr: true/false
+
+Pada SvelteKit, SSR (Server-Side Rendering) dan CSR (Client-Side Rendering) adalah dua metode rendering yang berbeda untuk menghasilkan halaman web. SvelteKit memungkinkan Anda mengonfigurasi opsi halaman (page options) untuk mengontrol perilaku rendering halaman. Berikut adalah beberapa perbedaan antara opsi halaman untuk SSR dan CSR:
+
+Pada halaman SSR, opsi ini biasanya diatur sebagai true untuk menunjukkan bahwa halaman tersebut akan di-render di sisi server.
+
+Pada halaman CSR, opsi ini biasanya diatur sebagai false untuk menunjukkan bahwa halaman tersebut akan di-render di sisi klien.
+
+// SSR Page
+export let ssr = true;
+
+// CSR Page
+export let ssr = false;
+
+```
+
+```sh
+
+#https://kit.svelte.dev/docs/page-options
+
+# +page.js
+export const ssr = false;
+// If both `ssr` and `csr` are `false`, nothing will be rendered!
+
+
+# +page.js
+export const csr = false;
+// If both `csr` and `ssr` are `false`, nothing will be rendered!
+
+```
+
+
+
+perbedaanya hanya berpengaruh ketika production
+
+
+STEP 1
+
+intro-site\src\routes\about\+page.js
+```sh
+
+export const prerender = true
+
+```
+
+intro-site\src\routes\contact\+page.server.js
+```sh
+
+export const csr = false;
+export const ssr = true;
+
+```
+
+intro-site\src\routes\person\[id]\+page.js
+```sh
+
+export const csr = true;
+export const ssr = false;
+
+```
+
+STEP 2
+
+
+```sh
+npm run build
+
+npm run preview
+```
+
+
+STEP 3 (result)
+
+http://localhost:4173/about (prerender) - view source
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link href="./_app/immutable/assets/0.42d40de3.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.57f840f0.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.cc1c0861.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.9f3dd68e.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/parse.bee59afc.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.e42f94c0.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.10b1266b.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.ab433938.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.96802055.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.27ed13f7.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/5.1f578d22.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">   <nav> <li><a data-sveltekit-preload-data href="/" class="svelte-1fbb995" data-svelte-h="svelte-xnw5qc">Home</a></li> <li><a data-sveltekit-preload-data href="contact" class="svelte-1fbb995" data-svelte-h="svelte-g9fcr8">Contact</a></li> <li><a data-sveltekit-preload-data href="about" class="svelte-1fbb995 active" data-svelte-h="svelte-1bvyusd">About</a></li> </nav> <h1>eki</h1> <h2>Path : /about</h2> <main><h2>SUPER SECRET PLEASE DONT LOOK &quot;sshhh!!!&quot;.</h2> <h1 data-svelte-h="svelte-soqi9t">About</h1>   </main> 
+			
+			<script>
+				{
+					__sveltekit_og4cwl = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {"PUBLIC_API_KEY":"unujnmsadWHJjkhuasdNMWnuacd_123kjjbasdbhkj"}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [{"type":"data","data":{name:"eki"},"uses":{}},{"type":"data","data":{secret:"sshhh!!!"},"uses":{}},null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.57f840f0.js"),
+						import("./_app/immutable/entry/app.e42f94c0.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2, 5],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
+
+```
+
+http://localhost:4173/contact (csr=false, ssr=true) - view source , halaman akan dirender di server
+
+```html
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link href="./_app/immutable/assets/0.42d40de3.css" rel="stylesheet">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">   <nav> <li><a data-sveltekit-preload-data href="/" class="svelte-1fbb995" data-svelte-h="svelte-xnw5qc">Home</a></li> <li><a data-sveltekit-preload-data href="contact" class="svelte-1fbb995 active" data-svelte-h="svelte-g9fcr8">Contact</a></li> <li><a data-sveltekit-preload-data href="about" class="svelte-1fbb995" data-svelte-h="svelte-1bvyusd">About</a></li> </nav> <h1>eki</h1> <h2>Path : /contact</h2> <main><h2 data-svelte-h="svelte-1xrwqqx">Contact Special Layout</h2> <h1 data-svelte-h="svelte-tbczl2">Contact</h1>    <form method="POST"> <label for="email" data-svelte-h="svelte-1p9d3fm">Email</label> <input type="email" name="email" id="email"> <br>    <label for="Message" data-svelte-h="svelte-10jibt4">Message</label> <br> <textarea name="message" id="message" cols="30" rows="10"></textarea> <br>    <button type="submit" data-svelte-h="svelte-7fuxb2">Send Message</button></form>  </main> </div>
+	</body>
+</html>
+
+
+```
+
+http://localhost:4173/person/1 (csr=true, ssr=false) - view source , halaman akan dirender di client
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_og4cwl = {
+						base: new URL("..", location).pathname.slice(0, -1),
+						env: {"PUBLIC_API_KEY":"unujnmsadWHJjkhuasdNMWnuacd_123kjjbasdbhkj"}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../_app/immutable/entry/start.57f840f0.js"),
+						import("../_app/immutable/entry/app.e42f94c0.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
+
+```
+
+--
+
+sveltekit adapter
+```sh
+https://kit.svelte.dev/docs/adapters
+
+# intro-site\svelte.config.js
+
+# import adapter from '@sveltejs/adapter-auto'; // default
+
+# @sveltejs/adapter-cloudflare for Cloudflare Pages
+# @sveltejs/adapter-cloudflare-workers for Cloudflare Workers
+# @sveltejs/adapter-netlify for Netlify
+# @sveltejs/adapter-node for Node servers
+# @sveltejs/adapter-static for static site generation (SSG)
+# @sveltejs/adapter-vercel for Vercel
+
+# comunity adapter https://sveltesociety.dev/components#adapters
+
+```
+
+example : 
+
+```bash
+
+npm install --save-dev @sveltejs/adapter-static
+
+```
+
+Konfigurasi adapter:
+Tambahkan adapter tersebut ke konfigurasi SvelteKit di berkas svelte.config.js:
+
+svelte.config.js
+```js
+
+import adapter from '@sveltejs/adapter-auto';
+// import adapter from '@sveltejs/adapter-static';
+
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	kit: {
+		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
+		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
+		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
+		adapter: adapter()
+	}
+};
+
+export default config;
+
+```
+
+```bash
+
+npm run build
+
+```
+
+
+
+</details>
 
 
 
