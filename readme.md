@@ -452,6 +452,19 @@ deploy :
 
 </details>
 
+<details>
+  <summary>EKI-20231201-041-Forms-or-Form-Actions</summary>
+
+```sh
+#https://kit.svelte.dev/docs/form-actions
+
+
+```
+
+</details>
+
+
+
 
 
 ## EKI INDRADI
