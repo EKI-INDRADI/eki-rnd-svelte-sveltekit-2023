@@ -791,6 +791,40 @@ npm run dev -- --open
 </details>
 
 
+
+<details>
+  <summary>EKI-20231204-044-Error-Pages</summary>
+
+```sh
+
+# NOT FOUND ERROR HANDLE
+http://localhost:5173/person/44
+
+# FOUND
+http://localhost:5173/person/1
+
+
+# ERROR HANDLE
+http://localhost:5173/random/2
+
+```
+
+
+```js
+
+    // 1
+    if (+params.id === 44) {
+        throw error(404, {message : 'Person not found'})
+    }
+
+
+    //2
+    // create intro-site\src\routes\+error.svelte  <<< auto redirect handle error with ui, makesure name '+error.svelte'
+
+```
+
+</details>
+
 ## EKI INDRADI
 
 "TIME > KNOWLEDGE > MONEY". #2024_3_DIGIT_MOTIVATION

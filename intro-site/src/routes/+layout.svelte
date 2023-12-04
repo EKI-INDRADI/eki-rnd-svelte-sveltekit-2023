@@ -20,8 +20,8 @@
 	<!-- https://kit.svelte.dev/docs/link-options -->
 </nav>
 
-<h1>{data.name}</h1>
-<h2>Path : {$page.url.pathname}</h2>
+<!-- <h1>{data.name}</h1>
+<h2>Path : {$page.url.pathname}</h2> -->
 
 <main>
 	<slot />
