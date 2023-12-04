@@ -823,6 +823,27 @@ http://localhost:5173/random/2
 
 </details>
 
+<details>
+  <summary>EKI-20231204-045-API-Routes</summary>
+
+
+```sh
+
+# API - SERVER SIDE ROUTE
+# https://kit.svelte.dev/docs/routing#server
+
+# intro-site\src\routes\fish\+server.js
+# http://localhost:5173/fish
+
+# intro-site\src\routes\shark\+server.js
+# http://localhost:5173/shark
+
+```
+
+
+</details>
+
+
 ## EKI INDRADI
 
 "TIME > KNOWLEDGE > MONEY". #2024_3_DIGIT_MOTIVATION
