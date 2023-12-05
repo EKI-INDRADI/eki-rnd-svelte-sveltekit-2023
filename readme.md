@@ -843,6 +843,139 @@ http://localhost:5173/random/2
 
 </details>
 
+<details>
+  <summary>EKI-20231205-046-Create-hook</summary>
+
+
+STEP 1
+```sh
+
+# hook -> semacem ctx / memory browser / cookies / untuk memory read data di routes tertentu (mirip middlewares) ex : permission page
+
+# https://kit.svelte.dev/docs/hooks
+
+# http://localhost:5173/random/2
+
+# intro-site\src\hooks.server.js
+
+# intro-site\src\routes\random\[number]\+page.server.js
+
+```
+
+
+TEST hooks
+```js
+// intro-site\src\hooks.server.js for test page http://localhost:5173/random/2
+
+/** @type {import('@sveltejs/kit').Handle} */
+export async function handle({ event, resolve }) {
+    //https://kit.svelte.dev/docs/hooks
+
+    // if (event.url.pathname.startsWith('/custom')) {
+    // if (event.url.pathname.startsWith('/random')) { //  jika /random ->  http://localhost:5173/random
+    // 	return new Response('custom response');
+    // }
+
+    console.log('ran on server')
+
+    event.locals.user = await getUser();
+
+    const response = await resolve(event);
+    return response;
+}
+
+
+async function getUser() {
+    return {
+        email: 'eki@red.com',
+        // admin : true // ADMIN USER
+        admin : false // NORMAL USER
+    }
+}
+```
+STEP 1 TEST : http://localhost:5173/random/2
+
+
+
+
+
+STEP 2
+
+create
+intro-site\src\routes\admin\+page.server.js
+
+update
+intro-site\src\hooks.server.js
+```js
+
+async function getUser() {
+    return {
+        email: 'eki@red.com',
+        admin : true // ADMIN USER
+        // admin : false // NORMAL USER
+    }
+}
+
+```
+
+STEP 2 TEST : http://localhost:5173/admin
+
+
+
+
+NEXT STEP (OPTIONAL)
+
+
+```js
+
+// secure page (optional)
+// https://kit.svelte.dev/docs/hooks
+
+```
+
+
+src/hooks.server.js
+```js
+import * as Sentry from '@sentry/node';
+import crypto from 'crypto';
+
+Sentry.init({/*...*/})
+
+/** @type {import('@sveltejs/kit').HandleServerError} */
+export async function handleError({ error, event }) {
+	const errorId = crypto.randomUUID();
+	// example integration with https://sentry.io/
+	Sentry.captureException(error, { extra: { event, errorId } });
+
+	return {
+		message: 'Whoops!',
+		errorId
+	};
+}
+```
+
+src/hooks.client.js
+```js
+import * as Sentry from '@sentry/svelte';
+
+Sentry.init({/*...*/})
+
+/** @type {import('@sveltejs/kit').HandleClientError} */
+export async function handleError({ error, event }) {
+	const errorId = crypto.randomUUID();
+	// example integration with https://sentry.io/
+	Sentry.captureException(error, { extra: { event, errorId } });
+
+	return {
+		message: 'Whoops!',
+		errorId
+	};
+}
+```
+
+
+</details>
+
 
 ## EKI INDRADI
 
