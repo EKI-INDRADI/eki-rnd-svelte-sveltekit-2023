@@ -977,7 +977,7 @@ export async function handleError({ error, event }) {
 </details>
 
 
-[NEXT PART II](https://github.com/EKI-INDRADI/eki-rnd-svelte-sveltekit-2023-part-2)
+[NEXT PART II - Section 4: SvelteKit with Firestore, Firebase Auth and SSR](https://github.com/EKI-INDRADI/eki-rnd-svelte-sveltekit-2023-part-2)
 
 
 ## EKI INDRADI
