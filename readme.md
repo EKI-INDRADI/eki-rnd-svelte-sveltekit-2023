@@ -977,6 +977,9 @@ export async function handleError({ error, event }) {
 </details>
 
 
+[NEXT PART II](https://github.com/EKI-INDRADI/eki-rnd-svelte-sveltekit-2023-part-2)
+
+
 ## EKI INDRADI
 
 "TIME > KNOWLEDGE > MONEY". #2024_3_DIGIT_MOTIVATION
